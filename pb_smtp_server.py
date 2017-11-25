@@ -17,6 +17,7 @@ class PBReceiver(SMTPServer):
         return None
 
     def process_message(self, peer, mailfrom, rcpttos, data):
+        # yes i know.. will validate spf later.
         if "admin@pastebin.com" not in mailfrom: 
             return 
         print("processing message...")
