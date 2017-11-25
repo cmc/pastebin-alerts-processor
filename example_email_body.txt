@@ -1,0 +1,18 @@
+HELO heh
+MAIL FROM: admin@pastebin.com
+RCPT TO: cmc@127.0.0.1
+DATA
+Hi username
+
+You are currently subscribed to the Pastebin Alerts service.
+
+We found pastes online that matched your alerts keyword: 'synack'.
+
+https://pastebin.com/x1JZd52g
+
+If you want to cancel this alerts service, please login to your Pastebin account, and remove this keyword from your Alerts page.
+
+Kind regards,
+
+The Pastebin Team
+.
