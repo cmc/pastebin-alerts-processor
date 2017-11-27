@@ -6,3 +6,7 @@ gets email, retrieves paste, writes filename w/ keyword & time.
 
 todo; (when not on plane), change into lambda, drive with SES instead.
 
+
+[edit]
+
+moved this whole thing to aws lambda + ses.
