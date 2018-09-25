@@ -1,12 +1,9 @@
 # pastebin-alerts-smtpd
 
-super quick and dirty mail handler for pastebin keyword alerts (https://pastebin.com/alerts) // needs pro account.
+AWS Lambda for processing alerts received via SES.
 
-gets email, retrieves paste, writes filename w/ keyword & time.
+Pastebin -> SES Handler -> SNS -> Lambda
 
-todo; (when not on plane), change into lambda, drive with SES instead.
+Stores content in S3 + Metadata in Dynamo.
 
-
-[edit]
-
-moved this whole thing to aws lambda + ses.
+Also, standalone mail handler for pastebin keyword alerts (https://pastebin.com/alerts), receives notification email, retrieves paste, writes filename w/ keyword & time.
