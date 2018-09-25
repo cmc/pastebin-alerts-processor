@@ -8,11 +8,12 @@ import base64
 import boto3
 import json
 import re
+import uuid
 from botocore.vendored import requests
 
 s3 = boto3.resource('s3')
 dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
-dyntable = dynamodb.Table('paste')
+dyntable = dynamodb.Table('paste_links')
 
 
 def retrieve_paste(url):
@@ -36,17 +37,18 @@ def lambda_handler(event, context):
         pc = retrieve_paste(u)
         pid = u[u.rindex('/')+1:]
         
-        s3_filepath = "MYDIR-pastes/pastecontent-{ts}-{kw}-{pid}.txt".format(
+        s3_filepath = "MY-PATH/{kw}-{ts}-{pid}-pastecontent.txt".format(
             ts=ts,
             kw=kw,
             pid=pid,
         )
-        s3.Bucket('MYBUCKET').put_object(Key=s3_filepath, Body=pc)
+        s3.Bucket('MY-BUCKET').put_object(Key=s3_filepath, Body=pc)
         print("paste written to: {}".format(s3_filepath))
         
 
         response = dyntable.put_item(
            Item={
+                'ID': str(uuid.uuid4()),
                 'keyword': kw,
                 'ts': ts,
                 'id': pid,
@@ -65,4 +67,3 @@ def lambda_handler(event, context):
         
     
     return message
-
