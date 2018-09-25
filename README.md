@@ -1,4 +1,4 @@
-# pastebin-alerts-smtpd
+# pastebin-alerts-processor
 
 AWS Lambda for processing alerts received via SES.
 
